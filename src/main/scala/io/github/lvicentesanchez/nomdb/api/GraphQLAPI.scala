@@ -5,9 +5,8 @@ import com.twitter.io.{ Buf, Reader }
 import io.circe.Json
 import io.finch._
 import io.finch.circe._
-import io.github.lvicentesanchez.nomdb.db.Database
-import io.github.lvicentesanchez.nomdb.model.GraphQLRequest
-import io.github.lvicentesanchez.nomdb.schema.GraphQLContext
+import io.github.lvicentesanchez.nomdb.model.graphql.{ GraphQLContext, GraphQLRequest }
+import io.github.lvicentesanchez.nomdb.repos.Repository
 import io.github.lvicentesanchez.nomdb.utils._
 import sangria.ast.Document
 import sangria.execution.{ ErrorWithResolver, Executor }
@@ -19,13 +18,12 @@ import sangria.schema.Schema
 import scala.concurrent.{ ExecutionContext, Future => ScalaFuture }
 import scala.util.Try
 
-class GraphQLAPI(schema: Schema[GraphQLContext, Unit], db: Database, ctxt: ExecutionContext) {
+class GraphQLAPI(schema: Schema[GraphQLContext, Unit], repo: Repository, ctxt: ExecutionContext) {
 
   private implicit val ec: ExecutionContext = ctxt
   private val executor: Executor[GraphQLContext, Unit] = Executor(schema)
 
-  private val graphQLContext: GraphQLContext =
-    GraphQLContext(db)
+  private val graphQLContext: GraphQLContext = GraphQLContext(repo)
 
   private val graphQLEditor: Endpoint[Buf] = get("graphql") {
     val file: Reader =

@@ -11,13 +11,19 @@ val compilerPlugins = Seq(
 )
 
 val rootDependencies = Seq(
-  "com.github.finagle"  %% "finch-core"     % "0.11.0-LOCAL",
-  "com.github.finagle"  %% "finch-circe"    % "0.11.0-LOCAL",
-  "com.twitter"         %% "twitter-server" % "1.20.0",
-  "io.circe"            %% "circe-generic"  % "0.5.1",
-  "io.circe"            %% "circe-parser"   % "0.5.1",
-  "org.sangria-graphql" %% "sangria"        % "0.7.3",
-  "org.sangria-graphql" %% "sangria-circe"  % "0.5.0"
+  "ch.qos.logback"      %  "logback-classic" % "1.1.7",
+  "ch.qos.logback"      %  "logback-core"    % "1.1.7",
+  "com.github.finagle"  %% "finch-core"      % "0.11.0-M4",
+  "com.github.finagle"  %% "finch-circe"     % "0.11.0-M4",
+  "com.h2database"      %  "h2"              % "1.4.193",
+  "com.twitter"         %% "twitter-server"  % "1.25.0",
+  "com.typesafe.slick"  %% "slick"           % "3.1.1",
+  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.1.1",
+  "io.circe"            %% "circe-generic"   % "0.5.4",
+  "io.circe"            %% "circe-parser"    % "0.5.4",
+  "org.flywaydb"        % "flyway-core"      % "4.0.3",
+  "org.sangria-graphql" %% "sangria"         % "0.7.3",
+  "org.sangria-graphql" %% "sangria-circe"   % "0.5.3"
 )
 
 val testDependencies = Seq (

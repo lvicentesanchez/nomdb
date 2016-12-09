@@ -1,4 +1,4 @@
-package io.github.lvicentesanchez.nomdb.model
+package io.github.lvicentesanchez.nomdb.model.graphql
 
 import io.circe.parser._
 import io.circe.{ Decoder, DecodingFailure, Encoder, Json }
