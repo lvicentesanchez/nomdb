@@ -5,11 +5,11 @@ package io.github.lvicentesanchez.nomdb.db
 
 import javax.sql.DataSource
 
-import slick.driver.JdbcDriver
+import slick.jdbc.JdbcProfile
 
 import scala.concurrent.{ ExecutionContext, Future }
 
-final class DB(context: ExecutionContext, database: DataSource, val driver: JdbcDriver) {
+final class DB(context: ExecutionContext, database: DataSource, val driver: JdbcProfile) {
 
   implicit val ec: ExecutionContext = context
 

@@ -1,5 +1,6 @@
 package io.github.lvicentesanchez.nomdb.model.graphql
 
+import cats.syntax.either._
 import io.circe.parser._
 import io.circe.{ Decoder, DecodingFailure, Encoder, Json }
 

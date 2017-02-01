@@ -13,17 +13,17 @@ val compilerPlugins = Seq(
 val rootDependencies = Seq(
   "ch.qos.logback"      %  "logback-classic" % "1.1.7",
   "ch.qos.logback"      %  "logback-core"    % "1.1.7",
-  "com.github.finagle"  %% "finch-core"      % "0.11.0-M4",
-  "com.github.finagle"  %% "finch-circe"     % "0.11.0-M4",
+  "com.github.finagle"  %% "finch-core"      % "0.12.0",
+  "com.github.finagle"  %% "finch-circe"     % "0.12.0",
   "com.h2database"      %  "h2"              % "1.4.193",
-  "com.twitter"         %% "twitter-server"  % "1.25.0",
-  "com.typesafe.slick"  %% "slick"           % "3.1.1",
-  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.1.1",
-  "io.circe"            %% "circe-generic"   % "0.5.4",
-  "io.circe"            %% "circe-parser"    % "0.5.4",
-  "org.flywaydb"        % "flyway-core"      % "4.0.3",
-  "org.sangria-graphql" %% "sangria"         % "0.7.3",
-  "org.sangria-graphql" %% "sangria-circe"   % "0.5.3"
+  "com.twitter"         %% "twitter-server"  % "1.26.0",
+  "com.typesafe.slick"  %% "slick"           % "3.2.0-M2" changing(),
+  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.2.0-M2" changing(),
+  "io.circe"            %% "circe-generic"   % "0.7.0",
+  "io.circe"            %% "circe-parser"    % "0.7.0",
+  "org.flywaydb"        %  "flyway-core"     % "4.0.3",
+  "org.sangria-graphql" %% "sangria"         % "1.0.0",
+  "org.sangria-graphql" %% "sangria-circe"   % "1.0.1"
 )
 
 val testDependencies = Seq (

@@ -12,7 +12,7 @@ import io.github.lvicentesanchez.nomdb.db.DB
 import io.github.lvicentesanchez.nomdb.repos.RepositoryImpl
 import io.github.lvicentesanchez.nomdb.schema.GraphQLSchema
 import org.flywaydb.core.Flyway
-import slick.driver.H2Driver
+import slick.jdbc.H2Profile
 
 import scala.concurrent.ExecutionContext.Implicits
 
@@ -27,7 +27,7 @@ object NomDB extends AbstractTwitterServer {
     temp
   }
 
-  val db: DB = new DB(Implicits.global, dataSource, H2Driver)
+  val db: DB = new DB(Implicits.global, dataSource, H2Profile)
 
   val graphQLAPI: GraphQLAPI =
     new GraphQLAPI(GraphQLSchema.Root, new RepositoryImpl(Implicits.global, db), Implicits.global)

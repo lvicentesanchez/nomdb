@@ -5,9 +5,9 @@ package io.github.lvicentesanchez.nomdb.db
 
 import io.github.lvicentesanchez.nomdb.model.{ Artist, Movie }
 import slick.ast.ColumnOption.PrimaryKey
-import slick.driver.JdbcDriver
+import slick.jdbc.JdbcProfile
 
-class Tables private[db] (val driver: JdbcDriver) {
+class Tables private[db] (val driver: JdbcProfile) {
 
   import driver.api._
 
