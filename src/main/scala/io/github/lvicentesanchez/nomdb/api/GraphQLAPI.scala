@@ -39,7 +39,7 @@ class GraphQLAPI(schema: Schema[GraphQLContext, Unit], repo: Repository, ctxt: E
     Ok(Buf.Utf8(rendered)).withHeader("Content-Type" -> "text/plain")
   }
 
-  private val graphQL: Endpoint[Json] = post("graphql" :: body.as[GraphQLRequest]) {
+  private val graphQL: Endpoint[Json] = post("graphql" :: jsonBody[GraphQLRequest]) {
     (request: GraphQLRequest) =>
       val document: Try[Document] = QueryParser.parse(request.query.value)
       val variables: Json = request.variables.fold(Json.obj())(_.value)
