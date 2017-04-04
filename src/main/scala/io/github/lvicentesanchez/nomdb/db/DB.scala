@@ -15,7 +15,7 @@ final class DB(context: ExecutionContext, database: DataSource, val driver: Jdbc
 
   import driver.api._
 
-  private val db: Database = Database.forDataSource(database)
+  private val db: Database = Database.forDataSource(database, None)
 
   def execute[A](param: DBIOAction[A, NoStream, Nothing]): Future[A] = db.run(param)
 

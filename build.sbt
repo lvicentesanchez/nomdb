@@ -11,18 +11,18 @@ val compilerPlugins = Seq(
 )
 
 val rootDependencies = Seq(
-  "ch.qos.logback"      %  "logback-classic" % "1.1.7",
-  "ch.qos.logback"      %  "logback-core"    % "1.1.7",
-  "com.github.finagle"  %% "finch-core"      % "0.12.0",
-  "com.github.finagle"  %% "finch-circe"     % "0.12.0",
-  "com.h2database"      %  "h2"              % "1.4.193",
-  "com.twitter"         %% "twitter-server"  % "1.26.0",
-  "com.typesafe.slick"  %% "slick"           % "3.2.0-M2" changing(),
-  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.2.0-M2" changing(),
-  "io.circe"            %% "circe-generic"   % "0.7.0",
-  "io.circe"            %% "circe-parser"    % "0.7.0",
-  "org.flywaydb"        %  "flyway-core"     % "4.0.3",
-  "org.sangria-graphql" %% "sangria"         % "1.0.0",
+  "ch.qos.logback"      %  "logback-classic" % "1.2.3",
+  "ch.qos.logback"      %  "logback-core"    % "1.2.3",
+  "com.github.finagle"  %% "finch-core"      % "0.14.0",
+  "com.github.finagle"  %% "finch-circe"     % "0.14.0",
+  "com.h2database"      %  "h2"              % "1.4.194",
+  "com.twitter"         %% "twitter-server"  % "1.28.0",
+  "com.typesafe.slick"  %% "slick"           % "3.2.0",
+  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.2.0",
+  "io.circe"            %% "circe-generic"   % "0.7.1",
+  "io.circe"            %% "circe-parser"    % "0.7.1",
+  "org.flywaydb"        %  "flyway-core"     % "4.1.2",
+  "org.sangria-graphql" %% "sangria"         % "1.1.0",
   "org.sangria-graphql" %% "sangria-circe"   % "1.0.1"
 )
 
@@ -44,7 +44,7 @@ val compileSettings = Seq(
   "-unchecked",
   //"-Xfatal-warnings",
   "-Xlint",
-  "-Ybackend:GenBCode",
+  //"-Ybackend:GenBCode",
   "-Ydelambdafy:method",
   "-Yno-adapted-args",
   "-Ywarn-dead-code",
@@ -76,7 +76,7 @@ val pluginsSettings =
 val settings = Seq(
   name := "nomdb",
   version := "0.1-SNAPSHOT",
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.12.1",
   libraryDependencies ++= dependencies,
   fork in run := true,
   fork in Test := true,
