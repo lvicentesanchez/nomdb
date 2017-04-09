@@ -1,6 +1,7 @@
 # Project Specific #
 # Add any additional ignore rules here! #
 ###################
+.ensime_cache/
 .lib-src/
 cache/
 external/
