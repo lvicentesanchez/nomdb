@@ -1,7 +1,3 @@
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
-
-import scalariform.formatter.preferences._
-
 // Resolvers
 resolvers ++= Seq(
 )
@@ -13,17 +9,17 @@ val compilerPlugins = Seq(
 val rootDependencies = Seq(
   "ch.qos.logback"      %  "logback-classic" % "1.2.3",
   "ch.qos.logback"      %  "logback-core"    % "1.2.3",
-  "com.github.finagle"  %% "finch-core"      % "0.14.0",
-  "com.github.finagle"  %% "finch-circe"     % "0.14.0",
-  "com.h2database"      %  "h2"              % "1.4.194",
-  "com.twitter"         %% "twitter-server"  % "1.28.0",
-  "com.typesafe.slick"  %% "slick"           % "3.2.0",
-  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.2.0",
-  "io.circe"            %% "circe-generic"   % "0.7.1",
-  "io.circe"            %% "circe-parser"    % "0.7.1",
-  "org.flywaydb"        %  "flyway-core"     % "4.1.2",
-  "org.sangria-graphql" %% "sangria"         % "1.1.0",
-  "org.sangria-graphql" %% "sangria-circe"   % "1.0.1"
+  "com.github.finagle"  %% "finch-core"      % "0.15.1",
+  "com.github.finagle"  %% "finch-circe"     % "0.15.1",
+  "com.h2database"      %  "h2"              % "1.4.196",
+  "com.twitter"         %% "twitter-server"  % "1.30.0",
+  "com.typesafe.slick"  %% "slick"           % "3.2.1",
+  "com.typesafe.slick"  %% "slick-hikaricp"  % "3.2.1",
+  "io.circe"            %% "circe-generic"   % "0.8.0",
+  "io.circe"            %% "circe-parser"    % "0.8.0",
+  "org.flywaydb"        %  "flyway-core"     % "4.2.0",
+  "org.sangria-graphql" %% "sangria"         % "1.2.2",
+  "org.sangria-graphql" %% "sangria-circe"   % "1.1.0"
 )
 
 val testDependencies = Seq (
@@ -70,13 +66,12 @@ val forkedJvmOption = Seq(
   "-XX:+UseCompressedOops"
 )
 
-val pluginsSettings =
-  scalariformSettings
+val pluginsSettings = Seq()
 
 val settings = Seq(
   name := "nomdb",
   version := "0.1-SNAPSHOT",
-  scalaVersion := "2.12.1",
+  scalaVersion := "2.12.3",
   libraryDependencies ++= dependencies,
   fork in run := true,
   fork in Test := true,
@@ -84,10 +79,7 @@ val settings = Seq(
   connectInput in run := true,
   javaOptions in run ++= forkedJvmOption,
   javaOptions in Test ++= forkedJvmOption,
-  scalacOptions := compileSettings,
-  // formatting
-  //
-  ScalariformKeys.preferences := PreferencesImporterExporter.loadPreferences(( file(".") / "formatter.preferences").getPath)
+  scalacOptions := compileSettings
 )
 
 val main =
